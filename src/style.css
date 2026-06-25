@@ -1,0 +1,336 @@
+.citySearchBar, .scaleSelection, .weatherCard, .scaleBtn, .humidity, .wind, .visibility, .pressure, .fiveDaysForecast {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html {
+    background: linear-gradient(135deg, #1498fa 0%, #5e4fdf 100%);
+}
+
+body {
+    background-color: #1498fa;
+    background: linear-gradient(135deg, #1498fa 0%, #5e4fdf 100%);
+    min-height: 100vh;
+    width: 100%;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.root {
+    width: min(92vw, 420px);
+    height: min(90vh, 700px);
+    display: grid;
+    grid-template-rows: auto auto 1.1fr 1.1fr 0.85fr 0.85fr auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.citySearchBar {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    min-height: 46px;
+    padding: 0 14px;
+}
+
+.scaleSelection {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 5px;
+    gap: 6px;
+}
+
+/* Todo Neeed to add the active class for the active button */
+.scaleBtn{
+    width: 100%;
+    height: 100%;
+    min-height: 34px;
+    border: none;
+}
+
+.weatherCard {
+    grid-column: 1/5;
+    grid-row: 2/5;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    align-content: start;
+    justify-items: stretch;
+    padding: 14px;
+    gap: 12px;
+}
+
+.cityWeatherCard{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.locationIcon{
+    height: 15px;
+    width: auto;
+    background-color: transparent;
+    border: none;
+    backdrop-filter: none;
+    padding: 0px 5px;
+    filter: invert(100%)
+}
+
+.weatherSummary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+}
+
+.weatherIcon{
+    height: 94px;
+    width: auto;
+    margin: 0;
+}
+
+.weatherCardTemperature{
+    height: auto;
+    width: auto;
+    margin: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: clamp(3.6rem, 10vw, 4.6rem);
+    line-height: 1;
+}
+
+.conditionTitle{
+    margin: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: 1.2rem;
+}
+
+.conditionDescription{
+    margin: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: 0.88rem;
+}
+
+.weatherConditions {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.humidity {
+    grid-column: 1/3;
+    grid-row: 5/6;
+}
+
+.wind {
+    grid-column: 3/5;
+    grid-row: 5/6;
+}
+
+.visibility {
+    grid-column: 1/3;
+    grid-row: 6/7;
+}
+
+.pressure {
+    grid-column: 3/5;
+    grid-row: 6/7;
+}
+
+.fiveDaysForecast {
+    grid-column: 1/5;
+    grid-row: 7/9;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 12px;
+    padding: 14px;
+}
+
+.forecastTitle {
+    margin: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.forecastGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.forecastDay {
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    padding: 0;
+}
+
+.forecastDayLabel,
+.forecastHigh,
+.forecastLow {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    margin: 0;
+}
+
+.forecastDayLabel {
+    font-size: 0.9rem;
+}
+
+.forecastHigh {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.forecastLow {
+    font-size: 0.8rem;
+    opacity: 0.82;
+}
+
+.metricCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px;
+    color: white;
+}
+
+.metricHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+.metricIcon,
+.forecastIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    color: white;
+}
+
+.metricIcon svg,
+.forecastIcon svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.metricLabel {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.metricValue {
+    margin: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.metricValue,
+.metricLabel,
+.forecastTitle,
+.forecastDayLabel,
+.forecastHigh,
+.forecastLow,
+.conditionTitle,
+.conditionDescription,
+.cityWeatherCard,
+.scaleBtn,
+.citySearchBar {
+    color: white;
+}
+
+.citySearchBar,
+.scaleSelection,
+.weatherCard,
+.metricCard,
+.fiveDaysForecast {
+    width: 100%;
+}
+
+.citySearchBar {
+    min-height: 48px;
+    padding: 0 16px;
+}
+
+.scaleBtn {
+    min-height: 36px;
+    min-width: 36px;
+    border: none;
+}
+
+.citySearchBar,
+.scaleSelection,
+.weatherCard,
+.metricCard,
+.fiveDaysForecast,
+.forecastDay,
+.forecastTitle,
+.metricLabel,
+.metricValue,
+.conditionTitle,
+.conditionDescription {
+    font-family: inherit;
+}
