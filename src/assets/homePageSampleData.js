@@ -1,38 +1,34 @@
+import extractData, { getCity, getCurrentCondition, getCurrentFeelsLike, getCurrentHumidity, getCurrentIcon, getCurrentPressure, getCurrentTemperature, getCurrentUvIndex, getCurrentVisibility, getCurrentWindSpeed, getFiveDayForecast } from '../api/extractData.js'
+
 export const weatherSnapshot = {
-    location: "San Francisco— California, US",
+    location: getCity(),
     condition: "Partly Cloudy",
-    temperature: "16",
-    temperatureUnit: "°C",
-    summary: "Feels like 14°C · UV index 4"
+    temperature: getCurrentTemperature(),
+    temperatureUnit: "°F",
+    summary: `Feels like ${getCurrentFeelsLike()} . UV Index ${getCurrentUvIndex()}`
 }
 
 export const metricCardsData = {
     humidity: {
         label: "Humidity",
-        value: "78%",
+        value: `${getCurrentHumidity()}%`,
         icon: "humidity"
     },
     wind: {
         label: "Wind",
-        value: "24 km/h",
+        value: `${getCurrentWindSpeed()} km/h`,
         icon: "wind"
     },
     visibility: {
         label: "Visibility",
-        value: "14 km",
+        value: `${getCurrentVisibility()} km`,
         icon: "visibility"
     },
     pressure: {
         label: "Pressure",
-        value: "1013 hPa",
+        value: `${getCurrentPressure()} hPa`,
         icon: "pressure"
     }
 }
 
-export const forecastData = [
-    { day: "Mon", icon: "partly-cloudy-day", high: "18°", low: "12°" },
-    { day: "Tue", icon: "sunny", high: "20°", low: "13°" },
-    { day: "Wed", icon: "rain", high: "17°", low: "11°" },
-    { day: "Thu", icon: "rain", high: "15°", low: "10°" },
-    { day: "Fri", icon: "partly-cloudy-day", high: "19°", low: "12°" }
-]
+export const forecastData = getFiveDayForecast()
